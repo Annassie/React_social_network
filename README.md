@@ -1,3 +1,7 @@
+# Here will be added Social Network Page!
+# The project is in progress now.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
