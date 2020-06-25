@@ -10,7 +10,7 @@ const Message = (props) => {
 
 const DialogItem = (props) => {
     let path = "/dialogs/" + props.id;
-    
+
     return (
         <div className={s.dialog + ' ' + s.active}>
             <NavLink to={path}>{props.name}</NavLink>
@@ -19,23 +19,33 @@ const DialogItem = (props) => {
 }
 
 const Dialogs = (props) => {
+
+    let dialogsData = [
+        { id: 1, name: 'Dimych' },
+        { id: 2, name: 'Sasha' },
+        { id: 3, name: 'Anna' },
+        { id: 4, name: 'Victor' },
+        { id: 5, name: 'Sveta' },
+    ]
+
+    let messagesData = [
+        { id: 1, message: 'Heloo, how are you?' },
+        { id: 2, message: 'I like to play tennis!!' },
+        { id: 3, message: '' },
+        { id: 4, message: '' },
+        { id: 5, message: '' },
+    ]
+
+    let dialogsElements = dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
+    let messagesElements = messagesData.map(message => <Message message={message.message} />);
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name="Dimych" id="1"/>
-                <DialogItem name="Sasha" id="2"/>
-                <DialogItem name="Andry" id="3"/>
-                <DialogItem name="Sveta" id="4"/>
-                <DialogItem name="Victoria" id="5"/>
-                <DialogItem name="Anna" id="6"/>
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                <Message message="Hi!!!"/>
-                <Message message="How you?"/>
-                <Message message="How was your tennis today!!!"/>
-                <Message message="Is React easy?"/>
-                <Message message="Do you like React!!!"/>
-                <Message message="Yes, I do!!!"/>
+                {messagesElements }
             </div>
         </div>
     )
