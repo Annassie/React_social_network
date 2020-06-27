@@ -8,18 +8,24 @@ import { Route, Router } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 
-const App = () => {
+const App = (props) => {
+
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Navbar />
-        <div className='app-wrapper-content'> 
-          <Route path="/dialogs" component={Dialogs}/>
-          <Route path="/profile" component={Profile}/>
+        <div className='app-wrapper-content'>
+          {/* <Route path="/dialogs" component={Dialogs}/> */}
+          {/* <Route path="/profile" component={Profile}/>
           <Route path="/news" component={Dialogs}/>
           <Route path="/music" component={Profile}/>
-          <Route path="/settings" component={Profile}/>
+          <Route path="/settings" component={Profile}/> */}
+
+          <Route path="/dialogs" render={() => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />} />
+          <Route path="/profile" render={() => <Profile postsData={props.postsData} />} />
+
+
         </div>
       </div>
     </BrowserRouter>
@@ -29,5 +35,5 @@ const App = () => {
 
 
 
- 
+
 export default App;
